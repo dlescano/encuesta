@@ -13,38 +13,31 @@
 				<h1>Encuesta</h1>
 				<div class="contenedor_chat">
 					<div class="iphone" id="chat">
-						<div class="screen">
-							<div class="receive message">
-								<p>Hola, en que puedo ayudarte?</p>
-							</div>
-							<div class="send message">
-								hola necesito saber el precio de un Auto.
-							</div>
-							<div class="receive message">
-								<p>En que modelo estas interesado?</p>
-							</div>
-							<div class="send message">
-								en un C3 modelo 2017.
-							</div>
-							<div class="receive message">
-								<p>En que modelo estas interesado?</p>
-							</div>
-							<div class="send message">
-								en un C3 modelo 2017.
-							</div>
-							<div class="send message">
-								en un C3 modelo 2017.
-							</div>
-							<div class="send message">
-								en un C3 modelo 2017.
+						<div class="screen" id="screen">
+							<div v-for="item in Preguntas">
+								<div v-if="item.estado">
+									<div class="receive message">
+										<p>{{ item.pregunta }}</p>
+										<span v-for="ops in item.opciones">
+											{{ops}}
+										</span>
+									</div>
+									<div v-if="item.respuesta">
+										<div class="send message">
+											{{ item.respuesta }}
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 
 						<div class="form">
-							<div class="message-box">
-								<input type="text" class="message-input" placeholder="Type message...">
-								<button type="submit" class="message-submit">Send</button>
-							</div>
+							<form v-on:submit="RespondePregunta">
+								<div class="message-box" >
+									<input type="text" class="message-input" placeholder="Type message..." v-model="Respuestas.respuesta">
+									<button type="submit" class="message-submit">Send</button>
+								</div>
+							</form>
 						</div>
 
 
@@ -53,6 +46,9 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="../static/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="../static/js/app.js"></script>
 </body>
 </html>

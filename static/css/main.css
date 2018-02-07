@@ -65,6 +65,8 @@
     position: relative;
     z-index: 1;
     background-color: #FFFFFF;
+    max-height: calc(100% - 50px); 
+    overflow-y: auto;
 }
 
 .form {
@@ -74,7 +76,7 @@
     position: relative;
     z-index: 1;
     background-color: #FFFFFF;
-}
+}   
 
 .message-box {
     -webkit-box-flex: 0;
@@ -147,7 +149,7 @@
     border-radius: 20px;
     clear: both;
     margin: 5px 0;
-    max-width: 80%;
+    max-width: 100%;
     padding: 10px 15px;
     position: relative;
 }
